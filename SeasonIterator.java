@@ -1,13 +1,15 @@
-public class SeasonIterator {
+import java.util.Iterator;
+public class SeasonIterator implements EpisodeIterator, Iterator<Episode>{
     private Season season;
     private int index;
     public SeasonIterator(Season season){
         this.season=season;
+
     }
     public boolean hasNext(){
-        return index>season.getSize();
+        return index<season.getSize();
     }
     public Episode next(){
-        return season.getElementById(index++);
+        return season.getElementByIndex(index++);
     }
 }
